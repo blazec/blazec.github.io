@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=utf-8 />
+  <title>Select Supermarkets with Buffer using TURF</title>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <!-- <script src='https://api.mapbox.com/mapbox-gl-js/v0.27.0/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v0.27.0/mapbox-gl.css' rel='stylesheet' /> -->
+    <!-- <script src='https://npmcdn.com/@turf/turf@3.5.1/turf.min.js'></script> -->
+
+
+
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.13.1/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.13.1/mapbox-gl.css' rel='stylesheet' />
+  <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/turf/v2.0.2/turf.min.js'></script>
+
+    
+  <style>
+  body { margin:0; padding:0; }
+  #map { position:absolute; top:0; bottom:0; width:100%; }
+  .legend-container {
+      position: absolute;
+      bottom: 0px;
+      right: 0px;
+      padding: 0px 10px;
+      margin-bottom: 30px;
+      z-index: 1;
+  }
+  .legend {
+      font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+      background-color: white; /*background color of legend*/
+      padding: 10px; /*around stuff inside of legend*/
+      border-radius: 10px; /*round the edges of the legend div*/
+      box-shadow: 10px 10px 20px rgba(0,0,0,0.60); /*horizontal shadow, vertical shadow, size of shadow, color*/
+  }
+  .legend h2 {
+      margin: 0px 0px 15px; /*top margin, left/right margin, bottom margin*/
+  }
+  .legend-key {
+      display: inline-block;
+      width: 20px; /*size of circle*/
+      height: 20px;
+      margin-right: 10px; /*position of circle*/
+  }
+  </style>
+</head>
+<body>
+  <div id='map' class='map'> </div>
+  <div class='legend-container'>
+    <div id='legend' class='legend'>
+      <h5>Number of Supermarkets<br>(per square kilometer)<br>(four percentiles)</h5>
+      <!-- All the other legend stuff will be added here as we programatically insert divs/spans-->
+    </div>
+  </div>
+    
+  <div>
+  <script src='supermarkets.geojson'></script>
+  <script src='supermarkets.js'></script>
+</body>
+</html>

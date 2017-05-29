@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=utf-8 />
+  <title>Election Results</title>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.26.0/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.26.0/mapbox-gl.css' rel='stylesheet' />
+  <style>
+  body { margin:0; padding:0; }
+  #map { position:absolute; top:0; bottom:0; width:100%; }
+
+  #menu {
+        background: #fff;
+        position: absolute;
+        z-index: 1;
+        top: 10px;
+        right: 10px;
+        border-radius: 3px;
+        width: 120px;
+        border: 1px solid rgba(0,0,0,0.4);
+        font-family: 'Open Sans', sans-serif;
+    }
+
+ /* #menu #Bloc{
+        background: #a6bddb;
+        position: absolute;
+        z-index: 1;
+        top: 10px;
+        right: 10px;
+        border-radius: 3px;
+        width: 120px;
+        border: 1px solid rgba(0,0,0,0.4);
+        font-family: 'Open Sans', sans-serif;
+    }
+
+  #menu #Conservative {
+        background: #2c7fb8;
+        position: absolute;
+        z-index: 1;
+        top: 45px;
+        right: 10px;
+        border-radius: 3px;
+        width: 120px;
+        border: 1px solid rgba(0,0,0,0.4);
+        font-family: 'Open Sans', sans-serif;
+    }
+
+  #menu #Green {
+        background: #31a354;
+        position: absolute;
+        z-index: 1;
+        top: 10px;
+        right: 10px;
+        border-radius: 3px;
+        width: 120px;
+        border: 1px solid rgba(0,0,0,0.4);
+        font-family: 'Open Sans', sans-serif;
+    }
+
+  #menu #Liberal {
+        background: #de2d26;
+        position: absolute;
+        z-index: 1;
+        top: 10px;
+        right: 10px;
+        border-radius: 3px;
+        width: 120px;
+        border: 1px solid rgba(0,0,0,0.4);
+        font-family: 'Open Sans', sans-serif;
+    }
+
+  #menu #NDP {
+        background: #feb24c;
+        position: absolute;
+        z-index: 1;
+        top: 10px;
+        right: 10px;
+        border-radius: 3px;
+        width: 120px;
+        border: 1px solid rgba(0,0,0,0.4);
+        font-family: 'Open Sans', sans-serif;
+    }*/
+
+  #menu a {
+        font-size: 13px;
+        color: #404040;
+        display: block;
+        margin: 0;
+        padding: 0;
+        padding: 10px;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(0,0,0,0.4);
+        text-align: center;
+    }
+
+ 	#menu a#Bloc{
+        font-size: 13px;
+        color: #a6bddb;
+        display: block;
+        margin: 0;
+        padding: 0;
+        padding: 10px;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(0,0,0,0.4);
+        text-align: center;
+    }
+
+  #menu a#Conservative{
+        font-size: 13px;
+        color: #2c7fb8;
+        display: block;
+        margin: 0;
+        padding: 0;
+        padding: 10px;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(0,0,0,0.4);
+        text-align: center;
+    }
+
+  #menu a#Green{
+        font-size: 13px;
+        color: #31a354;
+        display: block;
+        margin: 0;
+        padding: 0;
+        padding: 10px;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(0,0,0,0.4);
+        text-align: center;
+    }
+
+    #menu a#Liberal{
+        font-size: 13px;
+        color: #de2d26;
+        display: block;
+        margin: 0;
+        padding: 0;
+        padding: 10px;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(0,0,0,0.4);
+        text-align: center;
+    }
+
+    #menu a#NDP{
+        font-size: 13px;
+        color: #feb24c;
+        display: block;
+        margin: 0;
+        padding: 0;
+        padding: 10px;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(0,0,0,0.4);
+        text-align: center;
+    }
+
+
+
+
+
+
+
+	#menu a:last-child {
+        border: none;
+    }
+
+	#menu a:hover {
+		background-color: #404040;
+		color: #ffffff;
+        /*background-color: #f8f8f8;
+        color: #404040;*/
+    }
+
+    #menu a.active {
+    	background-color: #ffffff;
+    	color: #404040;
+        /*background-color: #3887be;*/
+        /*color: #ffffff;*/
+    }
+
+    #menu a.active:hover {
+		background-color: #404040;
+		color: #ffffff;
+       /* background: #3074a4;*/
+    }
+
+    .mapboxgl-popup {
+        max-width: 400px;
+        font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    }
+
+    #title {
+    	z-index: 1;
+    }
+
+  </style>
+
+
+</head>
+<body>
+<div id="container">
+	<nav id="menu">
+    <a href="#" class="active" id="Bloc">Bloc Quebecois</a>
+    <a href="#" class="active" id="Conservative">Conservative</a>
+    <a href="#" class="active" id="Green">Green</a>
+    <a href="#" class="active" id="Liberal">Liberal</a>
+    <a href="#" class="active" id="NDP">NDP</a>
+  </nav>
+	<div id='map' class='map'> </div>
+</div>
+<script src='elections.js'></script>
+</body>
+</html>
